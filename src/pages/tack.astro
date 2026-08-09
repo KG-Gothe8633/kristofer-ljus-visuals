@@ -1,0 +1,106 @@
+---
+import '../styles/global.css';
+---
+
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Uppdrag skickat | Kristofer</title>
+    <meta
+      name="description"
+      content="Tack. Ditt uppdrag har skickats till Kristofer."
+    />
+  </head>
+
+  <body>
+    <header class="site-header thank-header">
+      <div class="brand" aria-label="Kristofer">
+        <span class="brand-mark">K</span>
+        <span>
+          <strong>Kristofer</strong>
+        </span>
+      </div>
+    </header>
+
+    <main class="thank-main">
+      <section class="thank-card">
+        <p class="eyebrow">Uppdrag mottaget</p>
+        <h1>Tack. Jag har fått ditt uppdrag.</h1>
+        <p>
+          Informationen är inskickad. Jag går igenom underlaget och återkommer om jag behöver fler uppgifter eller när nästa steg är tydligt.
+        </p>
+
+        <div class="thank-actions">
+          <a class="button primary" href="/uppdrag/">Skicka ett nytt uppdrag</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer portal-footer">
+      <p>© 2026 Kristofer · Uppdragsportal</p>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .thank-header {
+    position: relative;
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .thank-main {
+    min-height: calc(100vh - 180px);
+    display: grid;
+    place-items: center;
+    padding: clamp(60px, 10vw, 140px) 20px;
+    background:
+      radial-gradient(circle at 80% 18%, rgba(142, 154, 123, 0.2), transparent 28%),
+      var(--cream);
+  }
+
+  .thank-card {
+    width: min(860px, 100%);
+    padding: clamp(34px, 7vw, 72px);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.68);
+    box-shadow: 0 24px 80px rgba(31, 31, 27, 0.055);
+  }
+
+  .thank-card h1 {
+    margin-bottom: 28px;
+    font-size: clamp(2.7rem, 7vw, 5.5rem);
+    line-height: 0.96;
+  }
+
+  .thank-card > p:not(.eyebrow) {
+    max-width: 680px;
+    color: rgba(31, 31, 27, 0.72);
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    line-height: 1.7;
+  }
+
+  .thank-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 34px;
+  }
+
+  .portal-footer {
+    justify-content: center;
+    text-align: center;
+  }
+
+  @media (max-width: 560px) {
+    .thank-actions {
+      flex-direction: column;
+    }
+
+    .thank-actions .button {
+      width: 100%;
+    }
+  }
+</style>
