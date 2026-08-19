@@ -33,6 +33,45 @@ import '../styles/global.css';
       </section>
 
       <section class="portal-section">
+        <section class="availability-card" aria-labelledby="availability-title">
+          <div class="availability-copy">
+            <p class="eyebrow">Tillgänglighet</p>
+            <h2 id="availability-title">Se min planering.</h2>
+            <p>
+              Kalendern visar endast bokad tid. Kundnamn, uppdrag och andra detaljer är alltid dolda.
+            </p>
+
+            <div class="capacity-grid" aria-label="Vägledande kapacitet">
+              <div class="capacity-item">
+                <span>Jämna veckor</span>
+                <strong>Högst 5 timmar</strong>
+                <small>Cirka 1–2 timmar per dag</small>
+              </div>
+
+              <div class="capacity-item">
+                <span>Udda veckor</span>
+                <strong>Högst 8 timmar</strong>
+                <small>Cirka 2 timmar per dag</small>
+              </div>
+            </div>
+
+            <p class="availability-note">
+              Tiderna planeras flexibelt inom veckan. Skicka gärna in uppdraget även om det är kort eller
+              brådskande – jag bekräftar tid och deadline efter genomgång.
+            </p>
+          </div>
+
+          <div class="calendar-frame">
+            <iframe
+              title="Kristofers bokade tid"
+              src="https://calendar.google.com/calendar/embed?src=1b43d6efffa13b3b80da54bf8de54a67578c734bfab668af3b7a9e69e62121c3%40group.calendar.google.com&amp;ctz=Europe%2FStockholm&amp;mode=WEEK&amp;wkst=2&amp;showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0"
+              loading="lazy"
+              frameborder="0"
+              scrolling="no"
+            ></iframe>
+          </div>
+        </section>
+
         <form
           class="assignment-form"
           name="uppdrag"
@@ -762,6 +801,87 @@ import '../styles/global.css';
     box-shadow: 0 24px 80px rgba(31, 31, 27, 0.055);
   }
 
+  .availability-card {
+    width: min(1020px, 100%);
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: 0 24px 80px rgba(31, 31, 27, 0.055);
+  }
+
+  .availability-copy {
+    padding: clamp(24px, 4vw, 38px);
+  }
+
+  .availability-copy h2 {
+    margin-bottom: 14px;
+    font-size: clamp(1.75rem, 3vw, 2.75rem);
+    line-height: 1;
+    letter-spacing: -0.055em;
+  }
+
+  .availability-copy > p:not(.eyebrow) {
+    max-width: 720px;
+    color: rgba(31, 31, 27, 0.68);
+    line-height: 1.55;
+  }
+
+  .capacity-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .capacity-item {
+    display: grid;
+    gap: 4px;
+    padding: 17px 18px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--cream);
+  }
+
+  .capacity-item span {
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+  }
+
+  .capacity-item strong {
+    font-size: 1.08rem;
+  }
+
+  .capacity-item small {
+    color: rgba(31, 31, 27, 0.62);
+    font-size: 0.82rem;
+  }
+
+  .availability-copy .availability-note {
+    max-width: none;
+    margin: 18px 0 0;
+    padding: 13px 15px;
+    border-radius: 12px;
+    background: rgba(142, 154, 123, 0.12);
+    font-size: 0.86rem;
+  }
+
+  .calendar-frame {
+    height: 520px;
+    border-top: 1px solid var(--line);
+    background: var(--white);
+  }
+
+  .calendar-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
   .form-card,
   .submit-card {
     margin: 0;
@@ -918,6 +1038,28 @@ import '../styles/global.css';
     .form-card,
     .submit-card {
       padding: 22px 16px;
+    }
+
+    .availability-copy {
+      padding: 22px 16px;
+    }
+
+    .availability-copy h2 {
+      font-size: 1.75rem;
+    }
+
+    .capacity-grid {
+      grid-template-columns: 1fr;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .capacity-item {
+      padding: 14px;
+    }
+
+    .calendar-frame {
+      height: 460px;
     }
 
     .form-heading {
