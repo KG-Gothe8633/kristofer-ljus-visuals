@@ -146,12 +146,15 @@ import '../styles/global.css';
               <label class="field">
                 <span>Länk till berörd sida</span>
                 <input
-                  type="url"
+                  type="text"
                   name="url"
                   inputmode="url"
-                  placeholder="https://"
+                  placeholder="www.dinsida.se"
+                  autocapitalize="off"
+                  autocorrect="off"
+                  spellcheck="false"
                 />
-                <small>Länk till exempelvis hemsida, produkt, annons eller annat som berör uppdraget.</small>
+                <small>Länk till exempelvis hemsida, produkt, annons eller annat som berör uppdraget. Du behöver inte skriva https:// själv.</small>
               </label>
             </div>
           </fieldset>
@@ -294,6 +297,22 @@ import '../styles/global.css';
       const attachments = [...document.querySelectorAll('input[type="file"]')];
       const uploadNote = document.querySelector('#upload-note');
       const form = document.querySelector('.assignment-form');
+      const urlField = document.querySelector('input[name="url"]');
+
+      const normalizeUrl = (value) => {
+        const trimmed = value.trim();
+        if (!trimmed) return trimmed;
+        if (/^https?:\/\//i.test(trimmed)) return trimmed;
+        return `https://${trimmed}`;
+      };
+
+      if (urlField) {
+        urlField.addEventListener('blur', () => {
+          if (urlField.value.trim()) {
+            urlField.value = normalizeUrl(urlField.value);
+          }
+        });
+      }
 
       const updateOtherType = () => {
         const showOther = assignmentType?.value === 'Annat';
@@ -341,6 +360,10 @@ import '../styles/global.css';
       });
 
       form?.addEventListener('submit', (event) => {
+        if (urlField && urlField.value.trim()) {
+          urlField.value = normalizeUrl(urlField.value);
+        }
+
         if (!validateUploads()) {
           event.preventDefault();
           uploadNote?.scrollIntoView({ behavior: 'smooth', block: 'center' });

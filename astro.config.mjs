@@ -4,8 +4,5 @@ import netlify from '@astrojs/netlify';
 export default defineConfig({
   output: 'static',
   adapter: netlify(),
-  site: 'https://kristofer-ljus-visuals.netlify.app',
-  redirects: {
-    '/': '/uppdrag/'
-  }
+  site: 'https://kristofer-ljus-visuals.netlify.app'
 });
